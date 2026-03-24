@@ -76,6 +76,69 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Founder Section */}
+      <section className="py-24 relative z-10 bg-white/50 dark:bg-slate-900/20 backdrop-blur-3xl border-y border-slate-200/50 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Image Composition */}
+            <div className="relative mb-12 lg:mb-0">
+              {/* Office Image (Background) */}
+              <div className="relative h-[300px] sm:h-[400px] w-[85%] ml-auto rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
+                <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
+                  alt="Sanjivani Computer Office" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+              
+              {/* Founder Image (Foreground) */}
+              <div className="absolute -bottom-8 sm:-bottom-12 -left-2 sm:-left-4 w-[65%] h-[350px] sm:h-[450px] rounded-[3rem] overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.2)] border-8 border-slate-50 dark:border-slate-950 z-20">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" 
+                  alt="Mr. Sampat Sahebrao Bankar - Founder" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Decorative Element */}
+              <div className="absolute -left-12 top-12 w-32 h-32 bg-gradient-to-br from-violet-500 to-cyan-500 rounded-full blur-3xl opacity-30 z-0"></div>
+            </div>
+
+            {/* Text Content */}
+            <div className="lg:pl-8 mt-12 sm:mt-16 lg:mt-0 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-600 dark:text-violet-300 text-xs font-bold tracking-wider uppercase mb-6">
+                <span>Visionary Leadership</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">
+                Meet The <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500 dark:from-violet-400 dark:to-cyan-400">Founder</span>
+              </h2>
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+                Mr. Sampat Sahebrao Bankar
+              </h3>
+              <p className="text-violet-600 dark:text-violet-400 font-bold mb-6 flex items-center justify-center lg:justify-start gap-2">
+                <Sparkles className="w-5 h-5"/> Owner & Founder, Sanjivani Computer
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                With a deep-seated passion for technology and education, Mr. Sampat Sahebrao Bankar founded Sanjivani Computer to bridge the gap between world-class technical skills and local accessibility. Under his visionary leadership, Sanjivani Computer has grown into a premier hub for both cutting-edge IT education and top-tier computer services.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                <div className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                  <div className="text-3xl font-black text-violet-600 dark:text-violet-400">20+</div>
+                  <div className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-tight">Years of<br/>Excellence</div>
+                </div>
+                <div className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                  <div className="text-3xl font-black text-cyan-600 dark:text-cyan-400">100%</div>
+                  <div className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-tight">Commitment to<br/>Quality</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Highlights / Features */}
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
