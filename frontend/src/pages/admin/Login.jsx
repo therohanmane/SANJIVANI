@@ -33,24 +33,24 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="max-w-md w-full space-y-8 bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-800">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Admin Portal</h2>
-          <p className="mt-2 text-sm text-slate-600">Sign in to manage Sanjivani Computer</p>
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Admin Portal</h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">Sign in to manage Sanjivani Computer</p>
         </div>
         
-        {error && <div className="bg-red-50 text-red-700 p-4 rounded-xl text-sm border border-red-100">{error}</div>}
+        {error && <div className="bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 p-4 rounded-xl text-sm border border-red-100 dark:border-red-900/50">{error}</div>}
         
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Email address</label>
-              <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email address</label>
+              <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} className="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
-              <input type="password" required value={password} onChange={e=>setPassword(e.target.value)} className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
+              <input type="password" required value={password} onChange={e=>setPassword(e.target.value)} className="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
             </div>
           </div>
 

@@ -10,14 +10,14 @@ const Shop = () => {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen py-16">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
-            <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Tech Accessories</h1>
-            <p className="text-slate-600">Premium quality products at the best prices.</p>
+            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-2">Tech Accessories</h1>
+            <p className="text-slate-600 dark:text-slate-400">Premium quality products at the best prices.</p>
           </div>
-          <button className="mt-4 md:mt-0 p-3 bg-white text-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 border border-slate-200">
+          <button className="mt-4 md:mt-0 p-3 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-xl shadow-sm hover:shadow-md dark:shadow-none transition-all flex items-center gap-2 border border-slate-200 dark:border-slate-800">
             <ShoppingCart className="w-5 h-5"/>
             <span>Cart (0)</span>
           </button>
@@ -25,18 +25,18 @@ const Shop = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map(p => (
-            <div key={p.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 group flex flex-col">
-              <div className="h-48 bg-slate-100 overflow-hidden p-4">
+            <div key={p.id} className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm dark:shadow-none hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 group flex flex-col">
+              <div className="h-48 bg-slate-100 dark:bg-white overflow-hidden p-4">
                 <img src={p.image} alt={p.name} className="w-full h-full object-cover mix-blend-multiply rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="text-xs font-semibold text-primary-600 mb-2 tracking-wider uppercase">{p.cat}</div>
-                  <h3 className="font-bold text-slate-900 leading-snug mb-2">{p.name}</h3>
+                  <div className="text-xs font-semibold text-primary-600 dark:text-primary-400 mb-2 tracking-wider uppercase">{p.cat}</div>
+                  <h3 className="font-bold text-slate-900 dark:text-white leading-snug mb-2">{p.name}</h3>
                 </div>
                 <div className="flex items-center justify-between mt-4 pb-2">
-                  <span className="text-lg font-extrabold text-slate-900">{p.price}</span>
-                  <button className="p-2 bg-primary-50 text-primary-600 rounded-lg hover:bg-primary-600 hover:text-white transition-colors">
+                  <span className="text-lg font-extrabold text-slate-900 dark:text-white">{p.price}</span>
+                  <button className="p-2 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-lg hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors">
                     <ShoppingCart className="w-5 h-5"/>
                   </button>
                 </div>

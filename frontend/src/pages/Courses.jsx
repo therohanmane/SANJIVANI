@@ -35,12 +35,12 @@ const Courses = () => {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen py-16">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Professional <span className="text-primary-600">Training Programs</span></h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">Enhance your skillset and boost your career with our industry-recognized certification courses taught by highly experienced professionals.</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">Professional <span className="text-primary-600 dark:text-primary-400">Training Programs</span></h1>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Enhance your skillset and boost your career with our industry-recognized certification courses taught by highly experienced professionals.</p>
         </div>
 
         {loading ? (
@@ -50,21 +50,21 @@ const Courses = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map(course => (
-              <div key={course.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
+              <div key={course.id} className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-300 group flex flex-col">
                 <div className="h-48 overflow-hidden relative">
                   <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10"></div>
                   <img src={course.image || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60'} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{course.title}</h3>
-                  <p className="text-slate-600 mb-6 flex-1 text-sm leading-relaxed">{course.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{course.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 mb-6 flex-1 text-sm leading-relaxed">{course.description}</p>
                   
-                  <div className="flex items-center justify-between text-sm text-slate-500 mb-6 pt-4 border-t border-slate-100">
+                  <div className="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400 mb-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                     <div className="flex items-center gap-1"><Clock className="w-4 h-4"/> {course.duration}</div>
-                    <div className="flex items-center gap-1 font-semibold text-slate-900"><Tag className="w-4 h-4"/> {course.fees}</div>
+                    <div className="flex items-center gap-1 font-semibold text-slate-900 dark:text-white"><Tag className="w-4 h-4"/> {course.fees}</div>
                   </div>
 
-                  <button className="w-full py-3 bg-primary-50 text-primary-700 font-semibold rounded-lg hover:bg-primary-600 hover:text-white transition-colors">
+                  <button className="w-full py-3 bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-400 font-semibold rounded-lg hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors">
                     Enroll Now
                   </button>
                 </div>

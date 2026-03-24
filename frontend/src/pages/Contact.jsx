@@ -12,18 +12,18 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen py-16">
+    <div className="bg-white dark:bg-slate-950 min-h-screen py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Get in Touch</h1>
-          <p className="text-slate-600 max-w-2xl mx-auto">We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Get in Touch</h1>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">We're here to help and answer any question you might have. We look forward to hearing from you.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Info */}
-          <div className="lg:col-span-1 space-y-8 p-8 bg-slate-900 rounded-3xl text-white">
-            <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+          <div className="lg:col-span-1 space-y-8 p-8 bg-slate-900 border border-slate-900 dark:border-slate-800 rounded-3xl text-white">
+            <h2 className="text-2xl font-bold mb-6 text-white">Contact Information</h2>
             
             <div className="flex items-start gap-4">
               <div className="bg-white/10 p-3 rounded-full"><MapPin className="w-6 h-6 text-primary-400" /></div>
@@ -62,22 +62,22 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2 bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">Send us a Message</h3>
+          <div className="lg:col-span-2 bg-slate-50 dark:bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-100 dark:border-slate-800">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Send us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Your Name</label>
-                  <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all bg-white" placeholder="John Doe" />
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Your Name</label>
+                  <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="John Doe" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
-                  <input required type="email" value={formData.email} onChange={e=>setFormData({...formData, email: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all bg-white" placeholder="john@example.com" />
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Address</label>
+                  <input required type="email" value={formData.email} onChange={e=>setFormData({...formData, email: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="john@example.com" />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                <textarea required rows="5" value={formData.message} onChange={e=>setFormData({...formData, message: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all bg-white" placeholder="How can we help you?"></textarea>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                <textarea required rows="5" value={formData.message} onChange={e=>setFormData({...formData, message: e.target.value})} className="w-full px-5 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="How can we help you?"></textarea>
               </div>
               <button type="submit" className="px-8 py-4 bg-primary-600 text-white font-bold rounded-xl shadow-md hover:bg-primary-700 hover:-translate-y-1 transition-all">Send Message</button>
             </form>

@@ -22,7 +22,7 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       {/* Header */}
       <div className="bg-slate-900 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
@@ -34,29 +34,29 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Services List */}
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">What We Repair</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">What We Repair</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {services.map((svc, i) => (
-              <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary-200 hover:bg-white hover:shadow-lg transition-all">
-                <div className="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-4">
+              <div key={i} className="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary-200 dark:hover:border-primary-500/50 hover:bg-white dark:hover:bg-slate-900 hover:shadow-lg dark:hover:shadow-none transition-all">
+                <div className="w-14 h-14 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-xl flex items-center justify-center mb-4">
                   {svc.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{svc.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{svc.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{svc.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{svc.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Request Form */}
-        <div className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 lg:sticky lg:top-24 h-fit">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-800 lg:sticky lg:top-24 h-fit">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-3 bg-primary-100 rounded-full text-primary-600">
+            <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-600 dark:text-primary-400">
               <PhoneCall className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-slate-900">Request a Callback</h3>
-              <p className="text-sm text-slate-500">We'll get back to you within 2 hours.</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Request a Callback</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">We'll get back to you within 2 hours.</p>
             </div>
           </div>
           
@@ -67,20 +67,20 @@ const Services = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-                <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="John Doe" />
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
+                <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="John Doe" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                <input required type="tel" value={formData.phone} onChange={e=>setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="+91 XXXXXXXXXX" />
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
+                <input required type="tel" value={formData.phone} onChange={e=>setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="+91 XXXXXXXXXX" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Describe the Issue</label>
-                <textarea required rows="3" value={formData.issue} onChange={e=>setFormData({...formData, issue: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="E.g., Laptop screen is broken..."></textarea>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Describe the Issue</label>
+                <textarea required rows="3" value={formData.issue} onChange={e=>setFormData({...formData, issue: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="E.g., Laptop screen is broken..."></textarea>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Pickup Address</label>
-                <input required type="text" value={formData.address} onChange={e=>setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" placeholder="House no, Street, City" />
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Pickup Address</label>
+                <input required type="text" value={formData.address} onChange={e=>setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="House no, Street, City" />
               </div>
               <button type="submit" className="w-full py-4 bg-primary-600 text-white font-bold rounded-xl shadow-md hover:bg-primary-700 hover:-translate-y-0.5 transition-all">Submit Request</button>
             </form>
