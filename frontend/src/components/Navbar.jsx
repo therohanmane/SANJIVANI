@@ -40,14 +40,14 @@ const Navbar = () => {
   const ThemeIcon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Monitor;
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 py-2 shadow-sm dark:shadow-none' : 'bg-white dark:bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 ${scrolled ? 'py-2 shadow-sm dark:shadow-none' : 'py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-cyan-500 rounded-xl flex items-center justify-center text-white shadow-[0_0_15px_rgba(139,92,246,0.5)]">
                <TerminalSquare className="w-6 h-6" />
             </div>
-            <span className="font-black text-2xl tracking-tighter text-slate-900 dark:text-white">
+            <span className="font-black text-3xl tracking-tighter text-slate-900 dark:text-white">
               Sanjivani <span className="text-violet-500 dark:text-cyan-400">Computer</span>
             </span>
           </Link>
