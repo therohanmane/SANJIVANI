@@ -1,7 +1,12 @@
 import { MapPin, Phone, Mail, MonitorPlay, Globe, MessagesSquare, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSiteContext } from '../context/SiteContext';
 
 const Footer = () => {
+  const { siteSettings } = useSiteContext();
+  const siteName = siteSettings?.global?.siteName || "Sanjivani Computer";
+  const cc = siteSettings?.contact || {};
+  
   return (
     <footer className="bg-slate-900 text-slate-300 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +16,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 text-white">
               <MonitorPlay className="h-8 w-8 text-primary-500" />
-              <span className="font-bold text-xl tracking-tight">Sanjivani Computer</span>
+              <span className="font-bold text-xl tracking-tight">{siteName}</span>
             </Link>
             <p className="text-sm leading-relaxed">
               Your one-stop destination for professional IT training and reliable computer services.
@@ -51,15 +56,15 @@ const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>123 Tech Avenue, Future City, State 400001</span>
+                <span>{cc.address || "123 Tech Avenue, Future City"}</span>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>{cc.phone1 || "+91 98765 43210"}</span>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>info@sanjivani.tech</span>
+                <span>{cc.email1 || "info@sanjivani.tech"}</span>
               </li>
             </ul>
           </div>
@@ -67,7 +72,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} Sanjivani Computer. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {siteName}. All rights reserved.</p>
         </div>
       </div>
     </footer>

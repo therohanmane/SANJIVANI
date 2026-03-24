@@ -1,44 +1,66 @@
-const { db } = require('../firebase/admin');
+const dbHelper = require('../utils/db');
 
+// Generic error handler
 const handleError = (res, err, message) => {
   console.error(message, err);
   res.status(500).json({ error: message, details: err.message });
 };
 
-const handleGet = async (req, res, collectionName) => {
+// GET all inquiries
+const getAllInquiries = async (req, res) => {
   try {
-    if (!db) return res.status(500).json({ error: 'Database not initialized' });
-    const snapshot = await db.collection(collectionName).orderBy('createdAt', 'desc').get();
-    const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    res.status(200).json(items);
-  } catch (err) { handleError(res, err, `Failed to get ${collectionName}`); }
+    const inquiries = await dbHelper.getAll('inquiries');
+    res.status(200).json(inquiries);
+  } catch (err) {
+    handleError(res, err, 'Failed to get inquiries');
+  }
 };
 
-const handlePost = async (req, res, collectionName) => {
+// GET single inquiry
+const getInquiryById = async (req, res) => {
   try {
-    const docData = { ...req.body, createdAt: new Date().toISOString() };
-    const docRef = await db.collection(collectionName).add(docData);
-    res.status(201).json({ id: docRef.id, ...docData });
-  } catch (err) { handleError(res, err, `Failed to submt ${collectionName}`); }
+    const inquiry = await dbHelper.getById('inquiries', req.params.id);
+    if (!inquiry) return res.status(404).json({ error: 'Inquiry not found' });
+    res.status(200).json(inquiry);
+  } catch (err) {
+    handleError(res, err, 'Failed to get inquiry');
+  }
 };
 
-const handleDelete = async (req, res, collectionName) => {
-   try {
-    await db.collection(collectionName).doc(req.params.id).delete();
-    res.status(200).json({ message: 'Deleted successfully' });
-  } catch (err) { handleError(res, err, `Failed to delete ${collectionName}`); }
-}
+// POST new inquiry
+const createInquiry = async (req, res) => {
+  try {
+    const newInquiry = await dbHelper.add('inquiries', { ...req.body, status: 'pending', timestamp: new Date().toISOString() });
+    res.status(201).json(newInquiry);
+  } catch (err) {
+    handleError(res, err, 'Failed to create inquiry');
+  }
+};
+
+// PUT update inquiry (e.g. resolve)
+const updateInquiry = async (req, res) => {
+  try {
+    const updated = await dbHelper.update('inquiries', req.params.id, req.body);
+    res.status(200).json(updated);
+  } catch (err) {
+    handleError(res, err, 'Failed to update inquiry');
+  }
+};
+
+// DELETE inquiry
+const deleteInquiry = async (req, res) => {
+  try {
+    await dbHelper.remove('inquiries', req.params.id);
+    res.status(200).json({ message: 'Inquiry deleted successfully' });
+  } catch (err) {
+    handleError(res, err, 'Failed to delete inquiry');
+  }
+};
 
 module.exports = {
-  getContacts: (req, res) => handleGet(req, res, 'contacts'),
-  postContact: (req, res) => handlePost(req, res, 'contacts'),
-  deleteContact: (req, res) => handleDelete(req, res, 'contacts'),
-
-  getEnrollments: (req, res) => handleGet(req, res, 'enrollments'),
-  postEnrollment: (req, res) => handlePost(req, res, 'enrollments'),
-  deleteEnrollment: (req, res) => handleDelete(req, res, 'enrollments'),
-
-  getServiceRequests: (req, res) => handleGet(req, res, 'service_requests'),
-  postServiceRequest: (req, res) => handlePost(req, res, 'service_requests'),
-  deleteServiceRequest: (req, res) => handleDelete(req, res, 'service_requests')
+  getAllInquiries,
+  getInquiryById,
+  createInquiry,
+  updateInquiry,
+  deleteInquiry
 };

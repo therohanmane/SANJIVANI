@@ -1,8 +1,20 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { useSiteContext } from '../context/SiteContext';
 
 const Contact = () => {
+  const { siteSettings, loading } = useSiteContext();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  if (loading || !siteSettings) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-white dark:bg-slate-950">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"></div>
+      </div>
+    );
+  }
+
+  const cc = siteSettings.contact || {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +41,7 @@ const Contact = () => {
               <div className="bg-white/10 p-3 rounded-full"><MapPin className="w-6 h-6 text-primary-400" /></div>
               <div>
                 <h4 className="font-semibold text-lg text-white">Our Location</h4>
-                <p className="text-slate-400 text-sm mt-1">123 Tech Avenue, Future City, State 400001</p>
+                <p className="text-slate-400 text-sm mt-1">{cc.address}</p>
               </div>
             </div>
 
@@ -37,8 +49,13 @@ const Contact = () => {
               <div className="bg-white/10 p-3 rounded-full"><Phone className="w-6 h-6 text-primary-400" /></div>
               <div>
                 <h4 className="font-semibold text-lg text-white">Phone Number</h4>
-                <p className="text-slate-400 text-sm mt-1">+91 98765 43210</p>
-                <p className="text-slate-400 text-sm mt-1">+91 91234 56789</p>
+                {cc.phone1 && <p className="text-slate-400 text-sm mt-1">{cc.phone1}</p>}
+                {cc.phone2 && <p className="text-slate-400 text-sm mt-1">{cc.phone2}</p>}
+                {cc.whatsapp && (
+                  <p className="text-green-400 text-sm mt-2 flex items-center gap-1 font-medium">
+                    <MessageCircle className="w-4 h-4" /> WhatsApp: {cc.whatsapp}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -46,8 +63,8 @@ const Contact = () => {
               <div className="bg-white/10 p-3 rounded-full"><Mail className="w-6 h-6 text-primary-400" /></div>
               <div>
                 <h4 className="font-semibold text-lg text-white">Email Address</h4>
-                <p className="text-slate-400 text-sm mt-1">info@sanjivani.tech</p>
-                <p className="text-slate-400 text-sm mt-1">support@sanjivani.tech</p>
+                {cc.email1 && <p className="text-slate-400 text-sm mt-1">{cc.email1}</p>}
+                {cc.email2 && <p className="text-slate-400 text-sm mt-1">{cc.email2}</p>}
               </div>
             </div>
 
@@ -55,8 +72,8 @@ const Contact = () => {
               <div className="bg-white/10 p-3 rounded-full"><Clock className="w-6 h-6 text-primary-400" /></div>
               <div>
                 <h4 className="font-semibold text-lg text-white">Working Hours</h4>
-                <p className="text-slate-400 text-sm mt-1">Mon - Sat: 9:00 AM - 8:00 PM</p>
-                <p className="text-slate-400 text-sm mt-1">Sunday: Closed</p>
+                {cc.hours1 && <p className="text-slate-400 text-sm mt-1">{cc.hours1}</p>}
+                {cc.hours2 && <p className="text-slate-400 text-sm mt-1">{cc.hours2}</p>}
               </div>
             </div>
           </div>
@@ -87,14 +104,18 @@ const Contact = () => {
         {/* Map */}
         <div className="mt-16 h-96 bg-slate-200 rounded-3xl overflow-hidden shadow-inner flex items-center justify-center">
             {/* Using an iframe to embed Google Map representing generic coordinates */}
-            <iframe 
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.833890333246!2d72.822818!3d18.966465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU3JzU5LjMiTiA3MsKwNDknMjIuMSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
-               width="100%" 
-               height="100%" 
-               style={{ border: 0 }} 
-               allowFullScreen="" 
-               loading="lazy">
-            </iframe>
+            {cc.mapUrl ? (
+              <iframe 
+                 src={cc.mapUrl} 
+                 width="100%" 
+                 height="100%" 
+                 style={{ border: 0 }} 
+                 allowFullScreen="" 
+                 loading="lazy">
+              </iframe>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-slate-500 bg-slate-100 dark:bg-slate-800">Map not configured</div>
+            )}
         </div>
       </div>
     </div>

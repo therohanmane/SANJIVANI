@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, TerminalSquare, Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useSiteContext } from '../context/SiteContext';
 
 const Navbar = () => {
+  const { siteSettings } = useSiteContext();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showThemeMenu, setShowThemeMenu] = useState(false);
@@ -48,7 +50,12 @@ const Navbar = () => {
                <TerminalSquare className="w-6 h-6" />
             </div>
             <span className="font-black text-3xl tracking-tighter text-slate-900 dark:text-white">
-              Sanjivani <span className="text-violet-500 dark:text-cyan-400">Computer</span>
+              {(() => {
+                const name = siteSettings?.global?.siteName || "Sanjivani Computer";
+                const parts = name.split(' ');
+                const first = parts.shift();
+                return <>{first} <span className="text-violet-500 dark:text-cyan-400">{parts.join(' ')}</span></>;
+              })()}
             </span>
           </Link>
 

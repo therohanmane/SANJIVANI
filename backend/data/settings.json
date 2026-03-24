@@ -1,0 +1,32 @@
+{
+  "home": {
+    "heroTagline": "Welcome to the Hub — 2026",
+    "heroTitlePrefix": "CHOOSE YOUR ",
+    "heroTitleHighlight": "PATH",
+    "heroSubtitle": "Select a division to explore our specialized offerings.",
+    "founderName": "Mr. Sampat Sahebrao Bankar",
+    "founderRole": "Owner & Founder, Sanjivani Computer",
+    "founderBio": "With a deep-seated passion for technology and education, Mr. Sampat Sahebrao Bankar founded Sanjivani Computer to bridge the gap between world-class technical skills and local accessibility. Under his visionary leadership, Sanjivani Computer has grown into a premier hub for both cutting-edge IT education and top-tier computer services.",
+    "founderImage": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
+    "officeImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+    "yearsExcellence": "20+",
+    "commitment": "100%"
+  },
+  "contact": {
+    "address": "Sanjivani Computer Education, Near Primary School, Kurkumbh Tal. Daund Dist. Pune 413802",
+    "phone1": "+91 98603 42172",
+    "phone2": "",
+    "email1": "sanjivanicomputers22@gmail.com",
+    "email2": "",
+    "whatsapp": "+91 98603 42172",
+    "hours1": "Mon - Sat: 9:00 AM - 8:00 PM",
+    "hours2": "Sunday: Closed",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15124.62947116744!2d74.6548!3d18.4221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc30f6a27ce59b9%3A0xe10438cf38bf2281!2sKurkumbh%2C%20Maharashtra%20413802!5e0!3m2!1sen!2sin!4v1689254316000!5m2!1sen!2sin"
+  },
+  "global": {
+    "siteName": "Sanjivani Computer",
+    "facebookUrl": "#",
+    "twitterUrl": "#",
+    "instagramUrl": "#"
+  }
+}

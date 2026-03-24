@@ -14,11 +14,13 @@ const coursesRoutes = require('./routes/courses');
 const servicesRoutes = require('./routes/services');
 const productsRoutes = require('./routes/products');
 const inquiriesRoutes = require('./routes/inquiries');
+const settingsRoutes = require('./routes/settings');
 
 app.use('/api/courses', coursesRoutes);
 app.use('/api/services', servicesRoutes);
 app.use('/api/products', productsRoutes);
 app.use('/api/inquiries', inquiriesRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // Health check endpoint
 app.get('/', (req, res) => {

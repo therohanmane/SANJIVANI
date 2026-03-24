@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, Wrench, MonitorSmartphone, GraduationCap, ArrowRight, Sparkles, Zap, Code2 } from 'lucide-react';
+import { useSiteContext } from '../context/SiteContext';
 
 const Home = () => {
+  const { siteSettings, loading } = useSiteContext();
+
+  if (loading || !siteSettings) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"></div>
+      </div>
+    );
+  }
+
+  const hc = siteSettings.home || {};
+  
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white min-h-screen font-sans transition-colors duration-300 selection:bg-violet-500/30 dark:selection:bg-cyan-500/30">
       
@@ -19,13 +32,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto w-full text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-600 dark:text-violet-300 text-xs font-bold tracking-wider uppercase mb-8 backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-violet-500 dark:text-violet-400" />
-            <span>Welcome to the Hub — 2026</span>
+            <span>{hc.heroTagline || "Welcome to the Hub"}</span>
           </div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter mb-6">
-            CHOOSE YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500 dark:from-violet-400 dark:to-cyan-400">PATH</span>
+            {hc.heroTitlePrefix || "CHOOSE YOUR "} <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500 dark:from-violet-400 dark:to-cyan-400">{hc.heroTitleHighlight || "PATH"}</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
-            Select a division to explore our specialized offerings.
+            {hc.heroSubtitle || "Select a division to explore our specialized offerings."}
           </p>
         </div>
 
@@ -87,8 +100,8 @@ const Home = () => {
               <div className="relative h-[300px] sm:h-[400px] w-[85%] ml-auto rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
                 <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply z-10"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" 
-                  alt="Sanjivani Computer Office" 
+                  src={hc.officeImage || "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"} 
+                  alt="Office" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -96,8 +109,8 @@ const Home = () => {
               {/* Founder Image (Foreground) */}
               <div className="absolute -bottom-8 sm:-bottom-12 -left-2 sm:-left-4 w-[65%] h-[350px] sm:h-[450px] rounded-[3rem] overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.2)] border-8 border-slate-50 dark:border-slate-950 z-20">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" 
-                  alt="Mr. Sampat Sahebrao Bankar - Founder" 
+                  src={hc.founderImage || "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop"} 
+                  alt={hc.founderName || "Founder"} 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -115,21 +128,21 @@ const Home = () => {
                 Meet The <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500 dark:from-violet-400 dark:to-cyan-400">Founder</span>
               </h2>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-2">
-                Mr. Sampat Sahebrao Bankar
+                {hc.founderName || "Mr. Sampat Sahebrao Bankar"}
               </h3>
               <p className="text-violet-600 dark:text-violet-400 font-bold mb-6 flex items-center justify-center lg:justify-start gap-2">
-                <Sparkles className="w-5 h-5"/> Owner & Founder, Sanjivani Computer
+                <Sparkles className="w-5 h-5"/> {hc.founderRole || "Owner & Founder, Sanjivani Computer"}
               </p>
               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                With a deep-seated passion for technology and education, Mr. Sampat Sahebrao Bankar founded Sanjivani Computer to bridge the gap between world-class technical skills and local accessibility. Under his visionary leadership, Sanjivani Computer has grown into a premier hub for both cutting-edge IT education and top-tier computer services.
+                {hc.founderBio || "With a deep-seated passion for technology and education, Mr. Sampat Sahebrao Bankar founded Sanjivani Computer to bridge the gap between world-class technical skills and local accessibility. Under his visionary leadership, Sanjivani Computer has grown into a premier hub for both cutting-edge IT education and top-tier computer services."}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <div className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-3xl font-black text-violet-600 dark:text-violet-400">20+</div>
+                  <div className="text-3xl font-black text-violet-600 dark:text-violet-400">{hc.yearsExcellence || "20+"}</div>
                   <div className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-tight">Years of<br/>Excellence</div>
                 </div>
                 <div className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-3xl font-black text-cyan-600 dark:text-cyan-400">100%</div>
+                  <div className="text-3xl font-black text-cyan-600 dark:text-cyan-400">{hc.commitment || "100%"}</div>
                   <div className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-tight">Commitment to<br/>Quality</div>
                 </div>
               </div>

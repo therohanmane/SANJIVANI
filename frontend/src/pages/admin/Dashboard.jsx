@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { BookOpen, Wrench, ShoppingCart, MessageSquare, LogOut, Users, Bell } from 'lucide-react';
+import { BookOpen, Wrench, ShoppingCart, MessageSquare, LogOut, Users, Bell, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SiteSettingsPanel from './SiteSettingsPanel';
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('courses');
+  const [activeTab, setActiveTab] = useState('site_settings');
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,6 +13,7 @@ const Dashboard = () => {
   };
 
   const navItems = [
+    { id: 'site_settings', label: 'Site Customization', icon: <Settings className="w-5 h-5"/> },
     { id: 'courses', label: 'Manage Courses', icon: <BookOpen className="w-5 h-5"/> },
     { id: 'services', label: 'Manage Services', icon: <Wrench className="w-5 h-5"/> },
     { id: 'products', label: 'Manage Shop', icon: <ShoppingCart className="w-5 h-5"/> },
@@ -69,29 +71,35 @@ const Dashboard = () => {
 
         {/* Dashboard Content */}
         <div className="p-8 flex-1 overflow-y-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
-               <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center"><Users className="w-8 h-8"/></div>
-               <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Total Enrolled</p><p className="text-2xl font-bold text-slate-900 dark:text-white">128</p></div>
-            </div>
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
-               <div className="w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center"><Wrench className="w-8 h-8"/></div>
-               <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Service Requests</p><p className="text-2xl font-bold text-slate-900 dark:text-white">45</p></div>
-            </div>
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
-               <div className="w-14 h-14 rounded-xl bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center"><ShoppingCart className="w-8 h-8"/></div>
-               <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Orders Processed</p><p className="text-2xl font-bold text-slate-900 dark:text-white">312</p></div>
-            </div>
-          </div>
+          {activeTab === 'site_settings' ? (
+            <SiteSettingsPanel />
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
+                   <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center"><Users className="w-8 h-8"/></div>
+                   <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Total Enrolled</p><p className="text-2xl font-bold text-slate-900 dark:text-white">128</p></div>
+                </div>
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
+                   <div className="w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center"><Wrench className="w-8 h-8"/></div>
+                   <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Service Requests</p><p className="text-2xl font-bold text-slate-900 dark:text-white">45</p></div>
+                </div>
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex items-center gap-4 transition-colors">
+                   <div className="w-14 h-14 rounded-xl bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center"><ShoppingCart className="w-8 h-8"/></div>
+                   <div><p className="text-sm font-medium text-slate-500 dark:text-slate-400">Orders Processed</p><p className="text-2xl font-bold text-slate-900 dark:text-white">312</p></div>
+                </div>
+              </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none p-8 flex flex-col items-center justify-center h-64 text-center transition-colors">
-            <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-100 dark:border-slate-700">
-               <BookOpen className="w-8 h-8 text-slate-400 dark:text-slate-500" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">CRUD Table Prototype</h3>
-            <p className="text-slate-500 dark:text-slate-400 max-w-sm">This is where the data table for {activeTab} will be displayed, connected to the Express backend APIs.</p>
-            <button className="mt-6 px-6 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">Add New Entry</button>
-          </div>
+              <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none p-8 flex flex-col items-center justify-center h-64 text-center transition-colors">
+                <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-100 dark:border-slate-700">
+                   <BookOpen className="w-8 h-8 text-slate-400 dark:text-slate-500" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">CRUD Table Prototype</h3>
+                <p className="text-slate-500 dark:text-slate-400 max-w-sm">This is where the data table for "{activeTab.replace('_', ' ')}" will be displayed, connected to your Express backend APIs.</p>
+                <button className="mt-6 px-6 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">Add New Entry</button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
