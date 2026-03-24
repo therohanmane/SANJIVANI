@@ -48,7 +48,7 @@ const Navbar = () => {
                <TerminalSquare className="w-6 h-6" />
             </div>
             <span className="font-black text-2xl tracking-tighter text-slate-900 dark:text-white">
-              SANJIVANI <span className="text-violet-500 dark:text-cyan-400">Computer</span>
+              Sanjivani <span className="text-violet-500 dark:text-cyan-400">Computer</span>
             </span>
           </Link>
 

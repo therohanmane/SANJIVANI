@@ -25,7 +25,7 @@ const Dashboard = () => {
         <div className="p-6 border-b border-slate-800">
           <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">S</div>
-            SANJIVANI
+            Sanjivani Computer
           </h2>
           <p className="text-slate-400 text-sm mt-1">Admin Control Panel</p>
         </div>

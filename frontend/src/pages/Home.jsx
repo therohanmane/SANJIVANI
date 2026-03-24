@@ -32,7 +32,7 @@ const Home = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium">
-              SANJIVANI is your ultimate hub for next-gen IT courses, fast tech repairs, and premium gaming/PC accessories. Join the elite.
+              Sanjivani Computer is your ultimate hub for next-gen IT courses, fast tech repairs, and premium gaming/PC accessories. Join the elite.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full sm:w-auto">
@@ -63,7 +63,7 @@ const Home = () => {
                     <div className="px-3 py-1 bg-white/5 rounded-md text-xs font-mono text-slate-400 border border-white/5">script.js</div>
                  </div>
                  <div className="font-mono text-sm sm:text-base text-slate-700 dark:text-slate-300 space-y-4 flex-1">
-                    <p><span className="text-violet-600 dark:text-violet-400">const</span> student = <span className="text-cyan-600 dark:text-cyan-400">await</span> SANJIVANI.enroll();</p>
+                    <p><span className="text-violet-600 dark:text-violet-400">const</span> student = <span className="text-cyan-600 dark:text-cyan-400">await</span> SanjivaniComputer.enroll();</p>
                     <p>student.skills.push(<span className="text-green-400">'Web Dev'</span>, <span className="text-green-400">'AI'</span>);</p>
                     <p><span className="text-fuchsia-400">if</span> (student.isReady) {'{'}</p>
                     <p className="pl-4">console.<span className="text-blue-400">log</span>(<span className="text-yellow-300">'Unstoppable 🚀'</span>);</p>

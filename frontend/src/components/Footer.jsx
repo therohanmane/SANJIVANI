@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 text-white">
               <MonitorPlay className="h-8 w-8 text-primary-500" />
-              <span className="font-bold text-xl tracking-tight">SANJIVANI</span>
+              <span className="font-bold text-xl tracking-tight">Sanjivani Computer</span>
             </Link>
             <p className="text-sm leading-relaxed">
               Your one-stop destination for professional IT training and reliable computer services.
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} SANJIVANI Cyber Cafe & Institute. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sanjivani Computer. All rights reserved.</p>
         </div>
       </div>
     </footer>
