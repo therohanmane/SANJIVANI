@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { Monitor, ArrowLeft, Lock } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,51 +16,91 @@ const Login = () => {
     setLoading(true);
     setError('');
     
-    // For demonstration if firebase isn't configured, bypass it slightly or show error
     try {
-      if(email === 'admin@sanjivani.tech' && password === 'admin123') {
-         // Mock login success if Firebase config is placeholder
-         navigate('/admin/dashboard');
-         return;
+      // Mock bypass for development / placeholder Firebase
+      if (email === 'admin@sanjivani.tech' && password === 'admin123') {
+        navigate('/admin/dashboard');
+        return;
       }
 
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError('Invalid email or password. Note: Firebase is using placeholder config. Use admin@sanjivani.tech / admin123 to mock bypass for now.');
+      setError('Invalid credentials. (For offline local testing, you can use: admin@sanjivani.tech / admin123)');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      <div className="max-w-md w-full space-y-8 bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-800">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Admin Portal</h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">Sign in to manage Sanjivani Computer</p>
+    <div className="min-h-screen flex items-center justify-center bg-[#F7F9FC] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full bg-white p-8 sm:p-10 rounded-2xl shadow-sm border border-[#E4E7EC]">
+        
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 bg-[#155EEF] rounded-xl flex items-center justify-center text-white mx-auto mb-3 shadow-xs">
+            <Monitor className="w-6 h-6" />
+          </div>
+          <h2 className="text-2xl font-extrabold text-[#14213D] tracking-tight">
+            Staff Portal Sign In
+          </h2>
+          <p className="mt-1 text-xs text-[#667085]">
+            Sanjivani Computer Administration Desk
+          </p>
         </div>
         
-        {error && <div className="bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 p-4 rounded-xl text-sm border border-red-100 dark:border-red-900/50">{error}</div>}
+        {error && (
+          <div className="mb-4 bg-red-50 text-red-700 p-3.5 rounded-xl text-xs border border-red-200">
+            {error}
+          </div>
+        )}
         
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email address</label>
-              <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} className="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
-              <input type="password" required value={password} onChange={e=>setPassword(e.target.value)} className="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all" />
-            </div>
+        <form className="space-y-4" onSubmit={handleLogin}>
+          <div>
+            <label className="block text-xs font-semibold text-[#344054] mb-1.5">
+              Email Address
+            </label>
+            <input 
+              type="email" 
+              required 
+              value={email} 
+              onChange={e=>setEmail(e.target.value)} 
+              placeholder="admin@sanjivani.tech"
+              className="w-full px-3.5 py-2.5 text-sm border border-[#E4E7EC] bg-white text-[#344054] rounded-lg focus:border-[#155EEF]" 
+            />
           </div>
 
-          <button type="submit" disabled={loading} className="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all disabled:opacity-50">
-            {loading ? 'Signing in...' : 'Sign in'}
+          <div>
+            <label className="block text-xs font-semibold text-[#344054] mb-1.5">
+              Password
+            </label>
+            <input 
+              type="password" 
+              required 
+              value={password} 
+              onChange={e=>setPassword(e.target.value)} 
+              placeholder="••••••••"
+              className="w-full px-3.5 py-2.5 text-sm border border-[#E4E7EC] bg-white text-[#344054] rounded-lg focus:border-[#155EEF]" 
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={loading} 
+            className="w-full py-3 px-4 rounded-xl shadow-xs text-sm font-bold text-white bg-[#155EEF] hover:bg-[#004EEB] transition-colors disabled:opacity-50 mt-2"
+          >
+            {loading ? 'Authenticating...' : 'Sign In to Portal'}
           </button>
         </form>
+
+        <div className="mt-8 pt-4 border-t border-[#E4E7EC] text-center">
+          <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#155EEF] hover:underline">
+            <ArrowLeft className="w-3.5 h-3.5" /> Return to Public Website
+          </Link>
+        </div>
+
       </div>
     </div>
   );
 };
+
 export default Login;

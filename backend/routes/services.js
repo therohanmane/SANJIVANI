@@ -3,6 +3,7 @@ const router = express.Router();
 const servicesController = require('../controllers/servicesController');
 
 router.get('/', servicesController.getAllServices);
+router.get('/online', servicesController.getOnlineServices);
 router.get('/:id', servicesController.getServiceById);
 router.post('/', servicesController.createService);
 router.put('/:id', servicesController.updateService);

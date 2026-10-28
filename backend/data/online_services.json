@@ -1,0 +1,113 @@
+[
+  {
+    "id": "aadhaar-pan",
+    "category": "Identity & Citizen Documents",
+    "title": "Aadhaar & PAN Card Assistance",
+    "description": "Guidance and submission assistance for new PAN card applications, PAN corrections, and Aadhaar document update verification. Note: Final approval and dispatch are managed directly by authorized government authorities.",
+    "documents": [
+      "Passport size photos",
+      "Valid proof of identity (School LC, Voter ID)",
+      "Proof of address (Electricity bill, Ration card)",
+      "Active mobile number linked with Aadhaar"
+    ],
+    "process": "Document verification at institute -> Online application submission -> Receipt generated -> Track delivery status"
+  },
+  {
+    "id": "voter-passport",
+    "category": "Identity & Citizen Documents",
+    "title": "Voter ID Card & Passport Appointment",
+    "description": "Assistance with online registration of new Voter ID cards (Form 6), address corrections, digital voter ID download, and Passport Seva portal application filling and appointment booking.",
+    "documents": [
+      "Age proof (Birth Certificate or 10th Marksheet)",
+      "Address proof & family voter details",
+      "Passport: Original Educational documents, Aadhaar, PAN"
+    ],
+    "process": "Fill application on portal -> Upload necessary documents -> Schedule appointment (for Passport) or generate submission receipt"
+  },
+  {
+    "id": "aaple-sarkar-certificates",
+    "category": "Certificates & Revenue Records",
+    "title": "Income, Domicile & Caste Certificate Guidance",
+    "description": "Digital facilitation for citizen certificates through the Aaple Sarkar portal. We assist citizens with correct documentation, gazette declarations, and affidavit verification before online portal submission.",
+    "documents": [
+      "Applicant Aadhaar card & Ration card",
+      "Income proof (Talathi / Tahsildar report or Form 16)",
+      "School Leaving Certificate (LC) showing birth place for Domicile",
+      "Father's / Relative's School LC & Caste proof for Caste Certificate"
+    ],
+    "process": "Compile attested documents -> Upload via citizen portal -> Application submission tracking -> Digital certificate download on approval"
+  },
+  {
+    "id": "land-records",
+    "category": "Certificates & Revenue Records",
+    "title": "7/12 & 8A Land Record Digital Downloads",
+    "description": "Quick download and printing of digitally signed 7/12 (Satbara), 8A Utara, and Ferfar land revenue records directly from Maharashtra Mahabhulekh / Mahabhumi portals.",
+    "documents": [
+      "Village name, Taluka, and District (e.g. Kurkumbh / Daund / Pune)",
+      "Survey / Gut number or Khata number"
+    ],
+    "process": "Verify Gut number -> Search record on portal -> Generate official digitally signed copy -> High-quality printout"
+  },
+  {
+    "id": "scholarship-forms",
+    "category": "Student & Academic Assistance",
+    "title": "MahaDBT Scholarship & Fee Reimbursement",
+    "description": "End-to-end guidance for college and school students applying for Social Justice, Tribal, Minority, and EBC scholarships on the Maharashtra MahaDBT portal.",
+    "documents": [
+      "Current college admission receipt & allotment letter",
+      "Previous year marksheet",
+      "Income certificate (valid for current academic year)",
+      "Caste / Domicile certificate (if applicable)",
+      "Aadhaar-seeded bank passbook copy"
+    ],
+    "process": "Profile creation & course registration -> Document upload -> Verification with college nodal desk -> Tracking fund disbursement"
+  },
+  {
+    "id": "exam-forms",
+    "category": "Student & Academic Assistance",
+    "title": "Exam Forms, Hall Tickets & Recruitment Applications",
+    "description": "Assistance for online application forms for competitive exams (MPSC, UPSC, Police Bharti, Talathi, ZP, Army, Banking, SSC, Railway) and board/university examination form submission.",
+    "documents": [
+      "Educational qualification certificates & marksheets",
+      "Passport photo and signature as per prescribed size/DPI",
+      "Caste / Non-Creamy Layer certificate (if applying under quota)",
+      "Valid email ID and active mobile number"
+    ],
+    "process": "Review notification guidelines -> Accurate form entry -> Photo/signature resizing -> Online fee payment -> Print confirmation page"
+  },
+  {
+    "id": "business-msme",
+    "category": "Business & Government Schemes",
+    "title": "Udyam (MSME) & Basic Food License (FSSAI)",
+    "description": "Guidance for micro and small businesses, shops, and traders in Kurkumbh and Daund taluka to obtain Udyam registration certificates and basic FSSAI registrations.",
+    "documents": [
+      "Business owner Aadhaar and PAN card",
+      "Business name, address, and bank account details",
+      "Nature of business / service activities"
+    ],
+    "process": "Registration on official MSME portal -> Mobile OTP verification -> Free digital certificate issuance"
+  },
+  {
+    "id": "pm-kisan-schemes",
+    "category": "Business & Government Schemes",
+    "title": "PM Kisan eKYC & Farmer Scheme Assistance",
+    "description": "Assistance for local farmers with biometric/OTP-based eKYC for PM Kisan Samman Nidhi, registration for crop insurance (Pik Vima), and status verification.",
+    "documents": [
+      "Farmer Aadhaar Card",
+      "Land record (7/12) and bank passbook",
+      "Registered mobile number"
+    ],
+    "process": "Biometric or OTP authentication -> Instant verification on portal -> Print status acknowledgment"
+  },
+  {
+    "id": "printing-documentation",
+    "category": "Documentation & Utility Services",
+    "title": "Printing, Lamination, Scanning & Utility Payments",
+    "description": "High-speed black & white and color laser printing, large document scanning, PDF compilation, PVC smart card printing, and electricity / utility bill payment processing.",
+    "documents": [
+      "Softcopy via WhatsApp / Email / USB drive",
+      "Physical documents for Xerox or scanning"
+    ],
+    "process": "Immediate counter service with clean output and clear receipts"
+  }
+]

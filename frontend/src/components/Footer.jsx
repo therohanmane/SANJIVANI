@@ -1,79 +1,168 @@
-import { MapPin, Phone, Mail, MonitorPlay, Globe, MessagesSquare, Share2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteContext } from '../context/SiteContext';
 
 const Footer = () => {
-  const { siteSettings } = useSiteContext();
-  const siteName = siteSettings?.global?.siteName || "Sanjivani Computer";
-  const cc = siteSettings?.contact || {};
-  
+  const { settings } = useSiteContext();
+
+  const cleanPhone = settings.phone ? settings.phone.replace(/[^0-9]/g, '') : '919860342172';
+  const cleanWhatsApp = settings.whatsapp ? settings.whatsapp.replace(/[^0-9]/g, '') : cleanPhone;
+
   return (
-    <footer className="bg-slate-900 text-slate-300 py-12">
+    <footer className="bg-[#0E2142] text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Info */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2 text-white">
-              <MonitorPlay className="h-8 w-8 text-primary-500" />
-              <span className="font-bold text-xl tracking-tight">{siteName}</span>
+          {/* Col 1: Brand Info */}
+          <div className="lg:col-span-2 space-y-4">
+            <Link to="/" className="inline-block bg-white p-2.5 rounded-xl shadow-xs">
+              <img 
+                src="/logo-tight.png" 
+                alt="Sanjivani Computer Logo" 
+                className="h-8 w-auto object-contain"
+              />
             </Link>
-            <p className="text-sm leading-relaxed">
-              Your one-stop destination for professional IT training and reliable computer services.
+            
+            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
+              Established computer education institute, digital citizen service center, and IT hardware solutions provider with 19 years of practical experience serving Kurkumbh, Daund, and regional organizations.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-primary-400 transition-colors"><Globe className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-primary-400 transition-colors"><MessagesSquare className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-primary-400 transition-colors"><Share2 className="w-5 h-5" /></a>
+
+            <div className="pt-2 flex flex-wrap gap-2 text-xs">
+              <span className="px-2.5 py-1 bg-white/10 border border-white/15 rounded-md text-slate-200 font-medium">
+                19+ Years Experience
+              </span>
+              <span className="px-2.5 py-1 bg-white/10 border border-white/15 rounded-md text-slate-200 font-medium">
+                MKCL Courses
+              </span>
+              <span className="px-2.5 py-1 bg-white/10 border border-white/15 rounded-md text-slate-200 font-medium">
+                Hardware & AMC Support
+              </span>
+            </div>
+
+            <div className="pt-2">
+              <a 
+                href={`https://wa.me/${cleanWhatsApp}?text=Hello%20Sanjivani%20Computer`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-600/20 border border-emerald-500/30 text-emerald-300 text-xs font-semibold hover:bg-emerald-600/30 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>Instant WhatsApp Inquiry</span>
+              </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Col 2: Education & Courses */}
           <div>
-            <h3 className="text-white font-semibold mb-4 lg:ml-12">Quick Links</h3>
-            <ul className="space-y-2 lg:ml-12 text-sm">
-              <li><Link to="/courses" className="hover:text-primary-400 transition-colors">Training Courses</Link></li>
-              <li><Link to="/services" className="hover:text-primary-400 transition-colors">IT Repair Services</Link></li>
-              <li><Link to="/shop" className="hover:text-primary-400 transition-colors">Electronics Shop</Link></li>
-              <li><Link to="/contact" className="hover:text-primary-400 transition-colors">Contact Us</Link></li>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-[#9C225B] pl-2">
+              Education & Courses
+            </h3>
+            <ul className="space-y-2.5 text-sm text-slate-300">
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">MS-CIT Certification</Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">Tally Prime with GST</Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">Typing (30/40/50 WPM)</Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">Graphic Design & DTP</Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">Computer Fundamentals</Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-white transition-colors">Web Development</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Col 3: Services & Solutions */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Our Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="hover:text-primary-400 transition-colors cursor-pointer">Computer Repair</li>
-              <li className="hover:text-primary-400 transition-colors cursor-pointer">Laptop Maintenance</li>
-              <li className="hover:text-primary-400 transition-colors cursor-pointer">Printer Repair</li>
-              <li className="hover:text-primary-400 transition-colors cursor-pointer">CCTV Installation</li>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-[#491F6B] pl-2">
+              Services & AMC
+            </h3>
+            <ul className="space-y-2.5 text-sm text-slate-300">
+              <li>
+                <Link to="/it-services" className="hover:text-white transition-colors">Desktop & PC Repair</Link>
+              </li>
+              <li>
+                <Link to="/it-services" className="hover:text-white transition-colors">Laptop Servicing</Link>
+              </li>
+              <li>
+                <Link to="/it-services" className="hover:text-white transition-colors">Printer Repair & Refill</Link>
+              </li>
+              <li>
+                <Link to="/it-services" className="hover:text-white transition-colors">CCTV Camera Installation</Link>
+              </li>
+              <li>
+                <Link to="/online-services" className="hover:text-white transition-colors">Online Citizen Services</Link>
+              </li>
+              <li>
+                <Link to="/business-amc" className="hover:text-white transition-colors text-purple-300 font-medium">Business IT AMC</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Col 4: Contact & Location */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Info</h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex gap-3">
-                <MapPin className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>{cc.address || "123 Tech Avenue, Future City"}</span>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-emerald-400 pl-2">
+              Contact & Hours
+            </h3>
+            <ul className="space-y-3 text-sm text-slate-300">
+              <li className="flex gap-2.5 items-start">
+                <MapPin className="w-4 h-4 text-purple-300 shrink-0 mt-0.5" />
+                <a 
+                  href={settings.mapUrl || "https://maps.app.goo.gl/vk5Zh8VVvzaPxjfe9"} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors inline-flex items-center gap-1 leading-snug"
+                >
+                  <span>{settings.address}</span>
+                  <ExternalLink className="w-3 h-3 text-slate-400 shrink-0" />
+                </a>
               </li>
-              <li className="flex gap-3">
-                <Phone className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>{cc.phone1 || "+91 98765 43210"}</span>
+              <li className="flex gap-2.5 items-center">
+                <Phone className="w-4 h-4 text-purple-300 shrink-0" />
+                <a href={`tel:${settings.phone}`} className="hover:text-white transition-colors font-medium text-slate-200">
+                  {settings.phone}
+                </a>
               </li>
-              <li className="flex gap-3">
-                <Mail className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>{cc.email1 || "info@sanjivani.tech"}</span>
+              <li className="flex gap-2.5 items-center">
+                <Mail className="w-4 h-4 text-purple-300 shrink-0" />
+                <a href={`mailto:${settings.email}`} className="hover:text-white transition-colors truncate">
+                  {settings.email}
+                </a>
+              </li>
+              <li className="flex gap-2.5 items-start pt-1 border-t border-white/10">
+                <Clock className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                <span className="text-xs text-slate-300 leading-relaxed">
+                  {settings.workingHours || "Mon – Sat: 9:00 AM – 8:00 PM"}
+                </span>
               </li>
             </ul>
           </div>
 
         </div>
-        
-        <div className="border-t border-slate-800 mt-12 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} {siteName}. All rights reserved.</p>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>
+            &copy; {new Date().getFullYear()} {settings.brandName}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link to="/about" className="hover:text-slate-200 transition-colors">About Us</Link>
+            <Link to="/contact" className="hover:text-slate-200 transition-colors">Contact</Link>
+            <Link to="/admin/login" className="text-slate-400 hover:text-slate-300 transition-colors">
+              Staff Portal
+            </Link>
+          </div>
         </div>
+
       </div>
     </footer>
   );

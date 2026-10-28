@@ -1,21 +1,26 @@
 const admin = require('firebase-admin');
+const fs = require('fs');
+const path = require('path');
 
-// IMPORTANT: Replace this with actual path or env var for serviceAccountKey.json
-// Example: const serviceAccount = require('../../serviceAccountKey.json');
-// Or configure using environment variables in production.
+const serviceAccountPath = path.join(__dirname, '../serviceAccountKey.json');
+let db = null;
 
-try {
-  admin.initializeApp({
-    // credential: admin.credential.cert(serviceAccount)
-    // For local dev, if you use standard GOOGLE_APPLICATION_CREDENTIALS env var
-    credential: admin.credential.applicationDefault()
-  });
-  console.log('Firebase Admin initialized successfully.');
-} catch (error) {
-  console.warn('Firebase Admin initialization skipped or failed:', error.message);
-  console.log('Ensure you provide a valid service account credential before using Firestore.');
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS || fs.existsSync(serviceAccountPath)) {
+  try {
+    const cert = fs.existsSync(serviceAccountPath) 
+      ? admin.credential.cert(require(serviceAccountPath))
+      : admin.credential.applicationDefault();
+
+    admin.initializeApp({
+      credential: cert
+    });
+    db = admin.firestore();
+    console.log('Firebase Admin initialized with credentials.');
+  } catch (error) {
+    console.warn('Firebase Admin initialization failed:', error.message);
+  }
+} else {
+  console.log('Using local JSON storage for data (serviceAccountKey.json not detected).');
 }
-
-const db = admin.apps.length ? admin.firestore() : null;
 
 module.exports = { admin, db };

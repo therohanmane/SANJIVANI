@@ -1,0 +1,140 @@
+[
+  {
+    "id": "mscit",
+    "title": "MS-CIT Certification",
+    "fullName": "Maharashtra State Certificate in Information Technology",
+    "category": "Computer Education",
+    "duration": "2 to 3 Months (144 Hours)",
+    "fees": "MKCL Standard Fee",
+    "eligibility": "Open to all students, job seekers, and professionals",
+    "description": "The flagship computer literacy course recognized across Maharashtra. Learn Windows operating system, Microsoft Word, Excel, PowerPoint, Outlook, internet research, and essential digital citizen skills.",
+    "syllabus": [
+      "Computer Fundamentals & Hardware Awareness",
+      "Windows 11 Navigation & File Management",
+      "MS Word: Document Design, Tables & Official Letters",
+      "MS Excel: Formulas, Functions, Data Sheets & Charts",
+      "MS PowerPoint: Slide Decks, Animations & Transitions",
+      "Internet, Email, Online Banking & Cyber Safety",
+      "Digital Freelancing & Workplace Collaboration"
+    ],
+    "highlights": [
+      "Recognized by Maharashtra Government for public recruitment",
+      "MKCL Authorized curriculum with hands-on computer lab sessions",
+      "Personalized guidance by certified instructors"
+    ]
+  },
+  {
+    "id": "tally-prime",
+    "title": "Tally Prime with GST",
+    "fullName": "Computerized Accounting, Inventory & Taxation",
+    "category": "Accounting",
+    "duration": "2 Months",
+    "fees": "Contact Institute",
+    "eligibility": "Commerce students, business owners, and accounts aspirants",
+    "description": "Comprehensive practical training in modern business accounting using Tally Prime. Learn ledger creation, GST calculations, purchase/sales invoicing, inventory control, and financial reporting.",
+    "syllabus": [
+      "Principles of Double-Entry Bookkeeping",
+      "Company Creation & Chart of Accounts Setup",
+      "Voucher Entry: Payment, Receipt, Contra, Journal",
+      "GST Configuration: CGST, SGST, IGST Calculation",
+      "Inventory Management, Stock Items & Units of Measure",
+      "Generating GST Returns (GSTR-1, GSTR-3B) & E-Way Bills",
+      "Balance Sheet, Profit & Loss Account, and Bank Reconciliation"
+    ],
+    "highlights": [
+      "Hands-on practice on real business transactions",
+      "Covers latest GST compliance and e-invoicing workflows",
+      "Ideal for accounting jobs in local businesses and industries"
+    ]
+  },
+  {
+    "id": "typing-skills",
+    "title": "GCC-TBC Typing Course",
+    "fullName": "English, Marathi & Hindi Keyboard Typing (30 / 40 / 50 WPM)",
+    "category": "Skill Development",
+    "duration": "2 to 3 Months",
+    "fees": "Contact Institute",
+    "eligibility": "Students, job applicants, and government examination aspirants",
+    "description": "Master touch typing on standard computer keyboards with speed and high accuracy in English, Marathi, and Hindi. Prepares students for Maharashtra Government typing certifications (GCC-TBC).",
+    "syllabus": [
+      "Keyboard Fingering & Touch Typing Ergonomics",
+      "Speed Drills & Accuracy Training (30, 40, 50 WPM)",
+      "Official Letter Drafting & Tabulation Formatting",
+      "Government Exam Mock Typing Tests",
+      "Marathi (Inscript / Unicode) & Hindi Typing Practicals"
+    ],
+    "highlights": [
+      "State-of-the-art computer lab with dedicated typing software",
+      "Comprehensive preparation for government typing exams",
+      "Daily progress monitoring and speed feedback"
+    ]
+  },
+  {
+    "id": "graphic-design",
+    "title": "Graphic Design & DTP",
+    "fullName": "Adobe Photoshop & CorelDRAW Masterclass",
+    "category": "Creative & Design",
+    "duration": "2 Months",
+    "fees": "Contact Institute",
+    "eligibility": "Creative students, print shop operators, and freelance aspirants",
+    "description": "Practical training in commercial design and Desktop Publishing (DTP). Learn photo editing, social media banner creation, logo designing, visiting cards, and print-ready prepress artwork.",
+    "syllabus": [
+      "Photoshop: Layers, Masks, Selections & Retouching",
+      "Color Correction, Lighting Adjustments & Background Removal",
+      "CorelDRAW: Vector Shapes, Typography & Logo Drafting",
+      "Pamphlets, Flex Banners, Visiting Cards & Letterheads",
+      "Color Modes (RGB vs CMYK) & Printing Prepress Workflows"
+    ],
+    "highlights": [
+      "Portfolio creation with real design projects",
+      "Practical focus on local business advertising and printing jobs",
+      "Expert guidance on industry-standard design tools"
+    ]
+  },
+  {
+    "id": "computer-basics",
+    "title": "Basic Computer & Digital Skills",
+    "fullName": "Foundation Course in Computing & Digital Tools",
+    "category": "Foundations",
+    "duration": "1 Month",
+    "fees": "Contact Institute",
+    "eligibility": "Beginners of all ages, senior citizens, and young students",
+    "description": "A beginner-friendly introduction to computers, the internet, and smartphone connectivity. Designed to remove computer hesitation and build everyday digital self-confidence.",
+    "syllabus": [
+      "Hardware Components: CPU, Monitor, Keyboard, Mouse, Storage",
+      "Using Windows OS: File Management & Folder Organization",
+      "Creating Documents in MS Word & Basic Notes",
+      "Safe Web Browsing, Google Search & Online Safety",
+      "Smartphone-to-PC File Transfer, Cloud Storage Basics",
+      "Making Digital Payments Safely via UPI & Net Banking"
+    ],
+    "highlights": [
+      "Patient, step-by-step teaching in Marathi and English",
+      "Zero prerequisites; open to every learner",
+      "Practical daily digital tasks"
+    ]
+  },
+  {
+    "id": "web-development",
+    "title": "Web Development Fundamentals",
+    "fullName": "HTML, CSS, JavaScript & Modern Frontend Concepts",
+    "category": "Programming",
+    "duration": "3 to 4 Months",
+    "fees": "Contact Institute",
+    "eligibility": "College students and beginners interested in coding",
+    "description": "Learn the foundational languages of the World Wide Web. Build structured web pages using HTML5, style them with modern CSS, and add interactive logic using JavaScript.",
+    "syllabus": [
+      "HTML5 Semantics, Forms, Audio, Video & Tables",
+      "CSS3 Styling, Flexbox, Grid Layouts & Responsive Design",
+      "JavaScript Fundamentals: Variables, Functions, Loops & DOM",
+      "Interactive Web Components & Event Handling",
+      "Version Control Basics with Git & GitHub",
+      "Publishing a Live Website on the Internet"
+    ],
+    "highlights": [
+      "Hands-on coding exercises with real project outputs",
+      "Direct guidance from IT professionals",
+      "Strong foundation for modern software and engineering paths"
+    ]
+  }
+]

@@ -1,20 +1,42 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import { api } from '../utils/api';
 
 const SiteContext = createContext();
 
-export const useSiteContext = () => useContext(SiteContext);
+export const useSiteContext = () => {
+  return useContext(SiteContext);
+};
+
+export const defaultSettings = {
+  brandName: "Sanjivani Computer",
+  tagline: "Computer Education, Online Services & IT Solutions",
+  experienceYears: 19,
+  heroTitle: "Learn. Get Digital Services. Keep Your Technology Running.",
+  heroSubtitle: "Sanjivani Computer is an experienced computer education and IT services institute offering MKCL-related courses, online services, computer and laptop repairs, printer support, CCTV maintenance, and IT maintenance solutions for businesses and organizations.",
+  trustLine: "19 Years of Experience in Computer Education and IT Services",
+  founderName: "Mr. Sampat Sahebrao Bankar",
+  founderRole: "Owner & Founder, Sanjivani Computer",
+  founderDescription: "With over 19+ years of extensive experience in Information Technology, Mr. Sampat Sahebrao Bankar is a seasoned technical professional and educator in computer hardware and computer education.\n\nHe has built a strong reputation through his practical expertise in computer, laptop, and printer repair, CCTV installation and maintenance, networking solutions, and IT hardware support. Over the years, he has successfully handled technical and hardware operations for 50+ companies, delivering dependable solutions and long-term customer relationships.\n\nIn addition to technical services, Mr. Bankar is deeply committed to computer education. With 19+ years of teaching experience, he has trained hundreds of students in courses such as MSCIT, Tally Prime, English-Marathi-Hindi typing, Photoshop, CorelDRAW, and personality development programs. His practical teaching approach focuses on real-world skills, empowering students to become digitally confident and job-ready.",
+  address: "Near Primary School, Kurkumbh Tal. Daund Dist. Pune 413802",
+  email: "sanjivanicomputers22@gmail.com",
+  phone: "+91 9860342172",
+  whatsapp: "+91 9860342172",
+  mapUrl: "https://maps.app.goo.gl/vk5Zh8VVvzaPxjfe9",
+  workingHours: "Monday – Saturday: 9:00 AM – 8:00 PM (Sunday Closed)"
+};
 
 export const SiteProvider = ({ children }) => {
-  const [siteSettings, setSiteSettings] = useState(null);
+  const [settings, setSettings] = useState(defaultSettings);
   const [loading, setLoading] = useState(true);
 
   const fetchSettings = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/settings');
-      setSiteSettings(res.data);
-    } catch (err) {
-      console.error('Failed to load site settings', err);
+      const data = await api.getSettings();
+      if (data && typeof data === 'object') {
+        setSettings(prev => ({ ...prev, ...data }));
+      }
+    } catch (error) {
+      console.warn('Using default settings fallback:', error.message);
     } finally {
       setLoading(false);
     }
@@ -26,17 +48,20 @@ export const SiteProvider = ({ children }) => {
 
   const updateSettings = async (newSettings) => {
     try {
-      const res = await axios.put('http://localhost:5000/api/settings', newSettings);
-      setSiteSettings(res.data);
-      return res.data;
-    } catch (err) {
-      console.error('Failed to update site settings', err);
-      throw err;
+      const res = await api.updateSettings(newSettings);
+      if (res && res.settings) {
+        setSettings(prev => ({ ...prev, ...res.settings }));
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Failed to update site settings:', error);
+      return false;
     }
   };
 
   return (
-    <SiteContext.Provider value={{ siteSettings, loading, updateSettings, refreshSettings: fetchSettings }}>
+    <SiteContext.Provider value={{ settings, updateSettings, loading, fetchSettings }}>
       {children}
     </SiteContext.Provider>
   );

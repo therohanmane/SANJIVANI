@@ -1,32 +1,17 @@
 {
-  "home": {
-    "heroTagline": "Welcome to the Hub — 2026",
-    "heroTitlePrefix": "CHOOSE YOUR ",
-    "heroTitleHighlight": "PATH",
-    "heroSubtitle": "Select a division to explore our specialized offerings.",
-    "founderName": "Mr. Sampat Sahebrao Bankar",
-    "founderRole": "Owner & Founder, Sanjivani Computer",
-    "founderBio": "With a deep-seated passion for technology and education, Mr. Sampat Sahebrao Bankar founded Sanjivani Computer to bridge the gap between world-class technical skills and local accessibility. Under his visionary leadership, Sanjivani Computer has grown into a premier hub for both cutting-edge IT education and top-tier computer services.",
-    "founderImage": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop",
-    "officeImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-    "yearsExcellence": "20+",
-    "commitment": "100%"
-  },
-  "contact": {
-    "address": "Sanjivani Computer Education, Near Primary School, Kurkumbh Tal. Daund Dist. Pune 413802",
-    "phone1": "+91 98603 42172",
-    "phone2": "",
-    "email1": "sanjivanicomputers22@gmail.com",
-    "email2": "",
-    "whatsapp": "+91 98603 42172",
-    "hours1": "Mon - Sat: 9:00 AM - 8:00 PM",
-    "hours2": "Sunday: Closed",
-    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15124.62947116744!2d74.6548!3d18.4221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc30f6a27ce59b9%3A0xe10438cf38bf2281!2sKurkumbh%2C%20Maharashtra%20413802!5e0!3m2!1sen!2sin!4v1689254316000!5m2!1sen!2sin"
-  },
-  "global": {
-    "siteName": "Sanjivani Computer",
-    "facebookUrl": "#",
-    "twitterUrl": "#",
-    "instagramUrl": "#"
-  }
+  "brandName": "Sanjivani Computer",
+  "tagline": "Computer Education, Online Services & IT Solutions",
+  "experienceYears": 19,
+  "heroTitle": "Learn. Get Digital Services. Keep Your Technology Running.",
+  "heroSubtitle": "Sanjivani Computer is an experienced computer education and IT services institute offering MKCL-related courses, online services, computer and laptop repairs, printer support, CCTV maintenance, and IT maintenance solutions for businesses and organizations.",
+  "trustLine": "19 Years of Experience in Computer Education and IT Services",
+  "founderName": "Mr. Sampat Sahebrao Bankar",
+  "founderRole": "Owner & Founder, Sanjivani Computer",
+  "founderDescription": "With over 19+ years of extensive experience in Information Technology, Mr. Sampat Sahebrao Bankar is a seasoned technical professional and educator in computer hardware and computer education.\n\nHe has built a strong reputation through his practical expertise in computer, laptop, and printer repair, CCTV installation and maintenance, networking solutions, and IT hardware support. Over the years, he has successfully handled technical and hardware operations for 50+ companies, delivering dependable solutions and long-term customer relationships.\n\nIn addition to technical services, Mr. Bankar is deeply committed to computer education. With 19+ years of teaching experience, he has trained hundreds of students in courses such as MSCIT, Tally Prime, English-Marathi-Hindi typing, Photoshop, CorelDRAW, and personality development programs. His practical teaching approach focuses on real-world skills, empowering students to become digitally confident and job-ready.",
+  "address": "Near Primary School, Kurkumbh Tal. Daund Dist. Pune 413802",
+  "email": "sanjivanicomputers22@gmail.com",
+  "phone": "+91 9860342172",
+  "whatsapp": "+91 9860342172",
+  "mapUrl": "https://maps.app.goo.gl/vk5Zh8VVvzaPxjfe9",
+  "workingHours": "Monday – Saturday: 9:00 AM – 8:00 PM (Sunday Closed)"
 }

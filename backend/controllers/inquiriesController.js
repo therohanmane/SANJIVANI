@@ -1,66 +1,122 @@
-const dbHelper = require('../utils/db');
+const { db } = require('../firebase/admin');
+const fs = require('fs');
+const path = require('path');
 
-// Generic error handler
+const getFilePath = (collectionName) => {
+  return path.join(__dirname, `../data/${collectionName}.json`);
+};
+
+const readLocalData = (collectionName) => {
+  const filePath = getFilePath(collectionName);
+  try {
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, '[]', 'utf8');
+      return [];
+    }
+    const data = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(data || '[]');
+  } catch (e) {
+    console.error(`Error reading ${collectionName} local file:`, e);
+    return [];
+  }
+};
+
+const writeLocalData = (collectionName, data) => {
+  const filePath = getFilePath(collectionName);
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+    return true;
+  } catch (e) {
+    console.error(`Error writing ${collectionName} local file:`, e);
+    return false;
+  }
+};
+
 const handleError = (res, err, message) => {
   console.error(message, err);
   res.status(500).json({ error: message, details: err.message });
 };
 
-// GET all inquiries
-const getAllInquiries = async (req, res) => {
+const handleGet = async (req, res, collectionName) => {
   try {
-    const inquiries = await dbHelper.getAll('inquiries');
-    res.status(200).json(inquiries);
-  } catch (err) {
-    handleError(res, err, 'Failed to get inquiries');
+    if (!db) {
+      const items = readLocalData(collectionName);
+      return res.status(200).json(items);
+    }
+    const snapshot = await db.collection(collectionName).orderBy('createdAt', 'desc').get();
+    const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    res.status(200).json(items);
+  } catch (err) { 
+    // Fallback to local if Firestore fails
+    try {
+      const items = readLocalData(collectionName);
+      return res.status(200).json(items);
+    } catch {
+      handleError(res, err, `Failed to get ${collectionName}`); 
+    }
   }
 };
 
-// GET single inquiry
-const getInquiryById = async (req, res) => {
+const handlePost = async (req, res, collectionName) => {
   try {
-    const inquiry = await dbHelper.getById('inquiries', req.params.id);
-    if (!inquiry) return res.status(404).json({ error: 'Inquiry not found' });
-    res.status(200).json(inquiry);
+    const docData = { 
+      id: 'inq_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+      ...req.body, 
+      createdAt: new Date().toISOString() 
+    };
+    
+    if (!db) {
+      const current = readLocalData(collectionName);
+      current.unshift(docData);
+      writeLocalData(collectionName, current);
+      return res.status(201).json(docData);
+    }
+
+    const docRef = await db.collection(collectionName).add(docData);
+    res.status(201).json({ id: docRef.id, ...docData });
   } catch (err) {
-    handleError(res, err, 'Failed to get inquiry');
+    // Fallback to local write if Firestore fails
+    try {
+      const docData = { 
+        id: 'inq_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        ...req.body, 
+        createdAt: new Date().toISOString() 
+      };
+      const current = readLocalData(collectionName);
+      current.unshift(docData);
+      writeLocalData(collectionName, current);
+      return res.status(201).json(docData);
+    } catch {
+      handleError(res, err, `Failed to submit ${collectionName}`);
+    }
   }
 };
 
-// POST new inquiry
-const createInquiry = async (req, res) => {
+const handleDelete = async (req, res, collectionName) => {
   try {
-    const newInquiry = await dbHelper.add('inquiries', { ...req.body, status: 'pending', timestamp: new Date().toISOString() });
-    res.status(201).json(newInquiry);
-  } catch (err) {
-    handleError(res, err, 'Failed to create inquiry');
-  }
-};
-
-// PUT update inquiry (e.g. resolve)
-const updateInquiry = async (req, res) => {
-  try {
-    const updated = await dbHelper.update('inquiries', req.params.id, req.body);
-    res.status(200).json(updated);
-  } catch (err) {
-    handleError(res, err, 'Failed to update inquiry');
-  }
-};
-
-// DELETE inquiry
-const deleteInquiry = async (req, res) => {
-  try {
-    await dbHelper.remove('inquiries', req.params.id);
-    res.status(200).json({ message: 'Inquiry deleted successfully' });
-  } catch (err) {
-    handleError(res, err, 'Failed to delete inquiry');
+    if (!db) {
+      const current = readLocalData(collectionName);
+      const filtered = current.filter(item => item.id !== req.params.id);
+      writeLocalData(collectionName, filtered);
+      return res.status(200).json({ message: 'Deleted successfully' });
+    }
+    await db.collection(collectionName).doc(req.params.id).delete();
+    res.status(200).json({ message: 'Deleted successfully' });
+  } catch (err) { 
+    handleError(res, err, `Failed to delete ${collectionName}`); 
   }
 };
 
 module.exports = {
-  getAllInquiries,
-  getInquiryById,
-  createInquiry,
-  updateInquiry,
-  deleteInquiry
+  getContacts: (req, res) => handleGet(req, res, 'contacts'),
+  postContact: (req, res) => handlePost(req, res, 'contacts'),
+  deleteContact: (req, res) => handleDelete(req, res, 'contacts'),
+
+  getEnrollments: (req, res) => handleGet(req, res, 'enrollments'),
+  postEnrollment: (req, res) => handlePost(req, res, 'enrollments'),
+  deleteEnrollment: (req, res) => handleDelete(req, res, 'enrollments'),
+
+  getServiceRequests: (req, res) => handleGet(req, res, 'service_requests'),
+  postServiceRequest: (req, res) => handlePost(req, res, 'service_requests'),
+  deleteServiceRequest: (req, res) => handleDelete(req, res, 'service_requests')
 };

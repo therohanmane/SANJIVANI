@@ -1,0 +1,74 @@
+[
+  {
+    "id": "desktop-repair",
+    "title": "Desktop PC Repair & Diagnostics",
+    "category": "Computer & Laptop Repair",
+    "description": "Comprehensive troubleshooting for desktop computers. Hardware diagnosis, motherboard repair, power supply replacement, RAM/SSD upgrades, and system speed optimization.",
+    "features": [
+      "No display or system reboot loop fixes",
+      "Power supply unit (SMPS) testing & replacement",
+      "Hard drive to high-speed SSD data migration",
+      "Thermal cleaning & motherboard component inspection"
+    ]
+  },
+  {
+    "id": "laptop-maintenance",
+    "title": "Laptop Repair & Servicing",
+    "category": "Computer & Laptop Repair",
+    "description": "Professional care for all laptop brands. We fix broken screens, failing keyboards, charging ports, battery drain issues, damaged hinges, and overheating motherboards.",
+    "features": [
+      "LED/LCD screen replacement & cable repair",
+      "Keyboard & trackpad servicing",
+      "Battery replacement with genuine quality components",
+      "Body hinge fabrication & internal heat dissipation cleaning"
+    ]
+  },
+  {
+    "id": "printer-repair",
+    "title": "Printer Repair & Toner Refilling",
+    "category": "Hardware Support",
+    "description": "Reliable repair services for laser, inkjet, and all-in-one printers from HP, Canon, Epson, and Brother. Toner cartridge refilling, roller replacements, and paper jam resolutions.",
+    "features": [
+      "Cartridge toner refilling & drum replacements",
+      "Pickup roller repair & paper jam fixes",
+      "Print head unclogging & ink line servicing",
+      "Network printer configuration for office sharing"
+    ]
+  },
+  {
+    "id": "cctv-setup",
+    "title": "CCTV Installation & Maintenance",
+    "category": "Security & Infrastructure",
+    "description": "End-to-end security camera solutions for homes, commercial shops, schools, and factories. High-definition (HD) and IP cameras, DVR/NVR configuration, and remote mobile viewing.",
+    "features": [
+      "Indoor dome and outdoor bullet camera installation",
+      "DVR/NVR storage configuration & hard drive health checks",
+      "Secure mobile app setup for real-time remote monitoring",
+      "Camera realignment, wire maintenance, and adapter replacement"
+    ]
+  },
+  {
+    "id": "os-software-support",
+    "title": "OS Installation & Software Support",
+    "category": "Software & System",
+    "description": "Operating system installations, clean formatting, licensed antivirus setup, driver troubleshooting, and slow computer tune-ups for seamless everyday performance.",
+    "features": [
+      "Windows 10 / 11 setup and essential driver configurations",
+      "Antivirus installation & malware / adware removal",
+      "Software installation (Office, Accounting, Graphic tools)",
+      "System data backup & corruption recovery guidance"
+    ]
+  },
+  {
+    "id": "networking-solutions",
+    "title": "Office Networking & Wi-Fi Setup",
+    "category": "Infrastructure",
+    "description": "Structured cabling and wireless networking solutions for small offices, educational labs, and retail businesses to ensure fast and reliable connectivity.",
+    "features": [
+      "LAN cabling (Cat6) & RJ45 crimping",
+      "Wi-Fi router, range extender & switch installations",
+      "File and printer sharing setup across multiple computers",
+      "Broadband & internet troubleshooting"
+    ]
+  }
+]

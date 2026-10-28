@@ -1,17 +1,85 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  --color-primary-50: #f5f3ff;
-  --color-primary-100: #ede9fe;
-  --color-primary-500: #8b5cf6;
-  --color-primary-600: #7c3aed;
-  --color-primary-700: #6d28d9;
+  /* Brand Navy (from "Sanjivani" in logo) */
+  --color-brand-navy: #163262;
+  --color-brand-navy-dark: #0e2142;
+  --color-brand-navy-light: #20417a;
+
+  /* Brand Purple (from Laptop & Checkmark icon in logo) */
+  --color-brand-purple: #491f6b;
+  --color-brand-purple-hover: #3b1758;
+  --color-brand-purple-light: #f6eefb;
+  --color-brand-purple-border: #e5d1f4;
+
+  /* Brand Magenta / Berry (from "Computer" in logo) */
+  --color-brand-berry: #9c225b;
+  --color-brand-berry-hover: #83184b;
+  --color-brand-berry-light: #fdf2f7;
+  --color-brand-berry-border: #fad3e6;
+
+  /* Primary system tokens mapped to Brand Purple & Navy */
+  --color-primary-50: #f6eefb;
+  --color-primary-100: #edd7f7;
+  --color-primary-200: #dbb3ef;
+  --color-primary-300: #c68de4;
+  --color-primary-400: #a75ed1;
+  --color-primary-500: #6f2b9f;
+  --color-primary-600: #491f6b;
+  --color-primary-700: #3b1758;
+  --color-primary-800: #2d1143;
+  --color-primary-900: #1f0b2f;
+
+  --color-navy-900: #0e2142;
+  --color-navy-800: #163262;
+  --color-navy-700: #21437c;
+
+  --color-surface-light: #f8f9fc;
+  --color-border-subtle: #e5e7eb;
+  --color-text-body: #2b3342;
+  --color-text-muted: #5d6a80;
+
+  --color-accent-green: #16a34a;
+  --color-accent-green-light: #f0fdf4;
+}
+
+:root {
+  color-scheme: light;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fc;
+  color: #2b3342;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utility classes */
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+input:focus, textarea:focus, select:focus, button:focus-visible {
+  outline: none;
 }
